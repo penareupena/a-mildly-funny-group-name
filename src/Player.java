@@ -19,17 +19,25 @@ public class Player {
 	private Inventory inventory;				// the inventory of items that the player has obtained
 	
 	/**
-	 * Creates an instance of player to be used through out the game
+	 * Creates a new instance of player to be used through out the game.
+	 * 
+	 * <p>
+	 * 		The player that is created is brand new with only 1 character 
+	 * 		associated with the player with the given attribute values.
+	 * </p>
 	 * 
 	 * @param strength the number of strength points the initial character will have
 	 * @param dexterity the number of dexterity points the initial character will have
 	 * @param power the number of power points the initial character will have
 	 */
 	public Player(int strength, int dexterity, int power) {
+		// Instantiate variables
 		characters = new ArrayList<Character>();
 		party = new Party();
 		inventory = new Inventory();
+		
+		Character character = new Character(strength, dexterity, power);
+		
+		characters.add(character);
 	}
-	
-	
 }
