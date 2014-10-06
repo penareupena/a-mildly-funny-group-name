@@ -14,6 +14,6 @@
  * @author A Mildly Funny Group Name
  *
  */
-public class Armour {
+public class Armour extends InventoryItem {
 
 }
