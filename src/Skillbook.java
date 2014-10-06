@@ -9,6 +9,6 @@
  * @author A Mildly Funny Group Name
  *
  */
-public class Skillbook {
+public class Skillbook extends InventoryItem {
 
 }
