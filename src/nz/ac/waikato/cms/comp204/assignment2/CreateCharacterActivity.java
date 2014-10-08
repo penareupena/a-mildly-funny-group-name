@@ -1,9 +1,12 @@
 package nz.ac.waikato.cms.comp204.assignment2;
 
+import com.google.gson.Gson;
+
 import android.app.Activity;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -16,6 +19,11 @@ import nz.ac.waikato.cms.comp204.assignment2.classes.*;
 public class CreateCharacterActivity extends Activity implements OnClickListener {
 
 	private final int MAX_ATTRIBUTES = 15; 			// the maximum attribute points that can be used to create the character
+	
+	// The integer value of the initial characters attributes
+	private int strength; 
+	private int dexterity;
+	private int power;
 	
 	private EditText txtStrength;
 	private EditText txtDexterity;
@@ -84,11 +92,6 @@ public class CreateCharacterActivity extends Activity implements OnClickListener
 			String strengthString = txtStrength.getText().toString();
 			String dexterityString = txtDexterity.getText().toString();
 			String powerString = txtPower.getText().toString();
-			
-			// The integer values of the attributes
-			int strength = 0;
-			int dexterity = 0;
-			int power = 0;
 			
 			if (strengthString != null && !strengthString.equals(""))
 				strength = Integer.parseInt(strengthString);
