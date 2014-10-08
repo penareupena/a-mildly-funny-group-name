@@ -156,7 +156,7 @@ public class CreateCharacterActivity extends Activity implements OnClickListener
 	
 	@Override
 	public void onClick(View v) {
-		if (v.getId() == R.id.btnCreate) {
+		if (v.getId() == btnCreate.getId()) {
 			
 		}
 	}
