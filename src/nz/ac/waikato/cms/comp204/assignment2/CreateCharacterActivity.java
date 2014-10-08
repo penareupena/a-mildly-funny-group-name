@@ -14,6 +14,8 @@ public class CreateCharacterActivity extends Activity {
 	private EditText txtDexterity;
 	private EditText txtPower;
 	
+	private int attributesLeft = 0;
+	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);

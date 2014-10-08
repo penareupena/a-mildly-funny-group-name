@@ -79,5 +79,15 @@
         android:layout_toRightOf="@+id/lblPower"
         android:ems="5"
         android:inputType="number" />
+
+    <TextView
+        android:id="@+id/txtAttributesLeft"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@+id/lblAttributes"
+        android:layout_marginLeft="36dp"
+        android:layout_toRightOf="@+id/txtDexterity"
+        android:text="@string/attributes_left"
+        android:textAppearance="?android:attr/textAppearanceSmall" />
     
 </RelativeLayout>

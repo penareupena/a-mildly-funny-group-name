@@ -11,5 +11,6 @@
 	<string name="strength">Strength</string>
 	<string name="dexterity">Dexterity</string>
 	<string name="power">Power</string>
+	<string name="attributes_left">Attributes Left:</string>
 	
 </resources>
