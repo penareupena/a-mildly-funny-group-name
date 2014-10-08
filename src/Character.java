@@ -47,5 +47,7 @@ public class Character {
 		attributes.add(strengthAttribute);
 		attributes.add(dexterityAttribute);
 		attributes.add(powerAttribute);
+		
+		// TODO: Add simple weapon to character
 	}
 }
