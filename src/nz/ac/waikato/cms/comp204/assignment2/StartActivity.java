@@ -1,6 +1,7 @@
 package nz.ac.waikato.cms.comp204.assignment2;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -44,7 +45,8 @@ public class StartActivity extends Activity implements OnClickListener {
 	@Override
 	public void onClick(View view) {
 		if (view.getId() == btnStart.getId()) {
-			
+			Intent intent = new Intent(this, CreateCharacterActivity.class);
+			startActivity(intent);
 		}
 	}
 }
