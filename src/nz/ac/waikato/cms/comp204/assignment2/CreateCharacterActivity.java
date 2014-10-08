@@ -85,8 +85,6 @@ public class CreateCharacterActivity extends Activity implements OnClickListener
 			String dexterityString = txtDexterity.getText().toString();
 			String powerString = txtPower.getText().toString();
 			
-			System.out.println("Hello - Get String Values");
-			
 			// The integer values of the attributes
 			int strength = 0;
 			int dexterity = 0;
@@ -95,17 +93,11 @@ public class CreateCharacterActivity extends Activity implements OnClickListener
 			if (strengthString != null && !strengthString.equals(""))
 				strength = Integer.parseInt(strengthString);
 			
-			System.out.println("Hello - Get Integer Values (Strength)");
-			
 			if (dexterityString != null && !dexterityString.equals(""))
 				dexterity = Integer.parseInt(dexterityString);
 			
-			System.out.println("Hello - Get Integer Values (Dexterity)");
-			
 			if (powerString != null && !powerString.equals(""))
 				power = Integer.parseInt(powerString);
-			
-			System.out.println("Hello - Get Integer Values (Power)");
 			
 			int attributesUsed = strength + dexterity + power;
 			int attributesLeft = MAX_ATTRIBUTES - attributesUsed;
