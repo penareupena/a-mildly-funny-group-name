@@ -12,5 +12,6 @@
 	<string name="dexterity">Dexterity</string>
 	<string name="power">Power</string>
 	<string name="attributes_left">Attributes Left:</string>
+	<string name="create">Create</string>
 	
 </resources>

@@ -9,7 +9,7 @@
     tools:context="nz.ac.waikato.cms.comp204.assignment2.StartActivity" >
 
     <Button
-        android:id="@+id/btnStart"
+        android:id="@+id/btnCreate"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"

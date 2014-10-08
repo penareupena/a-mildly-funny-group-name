@@ -81,7 +81,7 @@
         android:inputType="number" />
 
     <TextView
-        android:id="@+id/txtAttributesLeft"
+        android:id="@+id/lblAttributesLeft"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignTop="@+id/lblAttributes"
@@ -89,5 +89,15 @@
         android:layout_toRightOf="@+id/txtDexterity"
         android:text="@string/attributes_left"
         android:textAppearance="?android:attr/textAppearanceSmall" />
+
+    <Button
+        android:id="@+id/btnCreate"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/txtDexterity"
+        android:layout_alignBottom="@+id/txtDexterity"
+        android:layout_alignLeft="@+id/lblAttributesLeft"
+        android:layout_marginLeft="74dp"
+        android:text="@string/create" />
     
 </RelativeLayout>
