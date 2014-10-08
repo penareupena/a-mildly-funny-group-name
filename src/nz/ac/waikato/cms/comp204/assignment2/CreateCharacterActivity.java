@@ -6,16 +6,22 @@ import android.text.Editable;
 import android.text.TextWatcher;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.view.View.OnClickListener;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
+import nz.ac.waikato.cms.comp204.assignment2.classes.*;
 
-public class CreateCharacterActivity extends Activity {
+public class CreateCharacterActivity extends Activity implements OnClickListener {
 
 	private final int MAX_ATTRIBUTES = 15; 			// the maximum attribute points that can be used to create the character
 	
 	private EditText txtStrength;
 	private EditText txtDexterity;
 	private EditText txtPower;
+	
+	private Button btnCreate;
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -27,10 +33,16 @@ public class CreateCharacterActivity extends Activity {
 		txtDexterity = (EditText)findViewById(R.id.txtDexterity);
 		txtPower = (EditText)findViewById(R.id.txtPower);
 		
+		// Get Button
+		btnCreate = (Button)findViewById(R.id.btnCreate);
+		
 		// Register text changed listeners
 		txtStrength.addTextChangedListener(onAttributeTextChanged);
 		txtDexterity.addTextChangedListener(onAttributeTextChanged);
 		txtPower.addTextChangedListener(onAttributeTextChanged);
+		
+		// Register onClick event listener
+		btnCreate.setOnClickListener(this);
 		
 		populateInitialValues();		// populates the text fields with their appropriate values
 	}
@@ -134,5 +146,18 @@ public class CreateCharacterActivity extends Activity {
 		txtStrength.setText(String.valueOf(attributes[strengthIndex]));
 		txtDexterity.setText(String.valueOf(attributes[dexterityIndex]));
 		txtPower.setText(String.valueOf(attributes[powerIndex]));
+	}
+
+	/**
+	 * Handles the click event of the create button
+	 * 
+	 * @param v
+	 */
+	
+	@Override
+	public void onClick(View v) {
+		if (v.getId() == R.id.btnCreate) {
+			
+		}
 	}
 }
