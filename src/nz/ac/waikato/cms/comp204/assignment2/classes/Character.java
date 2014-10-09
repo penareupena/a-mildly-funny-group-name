@@ -32,7 +32,7 @@ public class Character {
 	 * @param power the initial value if the power attribute
 	 */
 	public Character(int strength, int dexterity, int power) {
-		// Instatiate lists
+		// Instantiate lists
 		attributes = new ArrayList<Attribute>();
 		skills = new ArrayList<Skill>();
 		weapons = new ArrayList<Weapon>();
@@ -42,14 +42,46 @@ public class Character {
 		// Set max weapons
 		maxWeapons = 1;
 		
+		// Creates the main attributes for the character
 		Attribute strengthAttribute = new Attribute("strength", strength);
 		Attribute dexterityAttribute = new Attribute("dexterity", dexterity);
 		Attribute powerAttribute = new Attribute("power", power);
 		
+		// Creates a level stat for the character and sets it at it's default value of 1
+		Attribute level = new Attribute("level", 1);
+		
+		// Adds the attributes to the character
 		attributes.add(strengthAttribute);
 		attributes.add(dexterityAttribute);
 		attributes.add(powerAttribute);
+		attributes.add(level);
 		
 		// TODO: Add simple weapon to character
+	}
+	
+	/**
+	 * Gets the value of a given attribute
+	 * 
+	 * @param attributeName the name of the attribute whose value is to be retrieved
+	 * 
+	 * @return the int value of the attribute
+	 * 
+	 * @exception IllegalArgumentException if the attribute name isn't found
+	 */
+	public int getAttributeValue(String attributeName) {
+		int value = 0;
+		boolean found = false;
+		
+		for (int i = 0; i < attributes.size(); i++) {
+			if (attributes.get(i).getName() == attributeName) {
+				value = attributes.get(i).getValue();
+				found = true;
+			}
+		}
+		
+		if (!found)
+			throw new IllegalArgumentException("attributeName not found");
+		
+		return value;
 	}
 }
