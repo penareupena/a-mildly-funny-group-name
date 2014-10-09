@@ -43,12 +43,12 @@ public class Character {
 		maxWeapons = 1;
 		
 		// Creates the main attributes for the character
-		Attribute strengthAttribute = new Attribute("strength", strength);
-		Attribute dexterityAttribute = new Attribute("dexterity", dexterity);
-		Attribute powerAttribute = new Attribute("power", power);
+		Attribute strengthAttribute = new Attribute(AttributeName.strength, strength);
+		Attribute dexterityAttribute = new Attribute(AttributeName.dexterity, dexterity);
+		Attribute powerAttribute = new Attribute(AttributeName.power, power);
 		
 		// Creates a level stat for the character and sets it at it's default value of 1
-		Attribute level = new Attribute("level", 1);
+		Attribute level = new Attribute(AttributeName.level, 1);
 		
 		// Adds the attributes to the character
 		attributes.add(strengthAttribute);
@@ -68,7 +68,7 @@ public class Character {
 	 * 
 	 * @exception IllegalArgumentException if the attribute name isn't found
 	 */
-	public int getAttributeValue(String attributeName) {
+	public int getAttributeValue(AttributeName attributeName) {
 		int value = 0;
 		boolean found = false;
 		
