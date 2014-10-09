@@ -74,6 +74,15 @@ public class Attribute {
 	}
 	
 	/**
+	 * Gets the value of the attribute
+	 * 
+	 * @return
+	 */
+	public int getValue() {
+		return value;
+	}
+	
+	/**
 	 * Checks to see if the given name is one of the valid attribute names (case is ignored)
 	 * 
 	 * @param name the name to check
