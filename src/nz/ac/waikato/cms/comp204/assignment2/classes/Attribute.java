@@ -59,7 +59,7 @@ public class Attribute {
 	 *  
 	 * @param increment the amount to increment the attribute by.
 	 */
-	public void setValue(int increment) {
+	public void changeValue(int increment) {
 		value += increment;
 	}
 }

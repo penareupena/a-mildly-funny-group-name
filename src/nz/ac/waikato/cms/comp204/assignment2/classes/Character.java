@@ -95,7 +95,7 @@ public class Character {
 	public void changeAttributeValue(AttributeName name, int difference) {
 		for (int i = 0; i < attributes.size(); i++) {
 			if (attributes.get(i).getName() == name) {
-				attributes.get(i).setValue(difference);
+				attributes.get(i).changeValue(difference);
 			}
 		}
 	}
