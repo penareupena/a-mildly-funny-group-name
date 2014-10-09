@@ -83,6 +83,27 @@ public class Attribute {
 	}
 	
 	/**
+	 * Gets the name of the attribute
+	 * 
+	 * @return
+	 */
+	public String getName() {
+		return name;
+	}
+	
+	/**
+	 * Increases/Decreases the value of the attribute by the given amount
+	 * <p>
+	 * 		To decrease the attribute set increment to < 0.
+	 * </p>
+	 *  
+	 * @param increment the amount to increment the attribute by.
+	 */
+	public void setValue(int increment) {
+		value += increment;
+	}
+	
+	/**
 	 * Checks to see if the given name is one of the valid attribute names (case is ignored)
 	 * 
 	 * @param name the name to check
