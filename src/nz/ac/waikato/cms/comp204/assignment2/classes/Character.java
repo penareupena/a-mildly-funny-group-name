@@ -84,4 +84,19 @@ public class Character {
 		
 		return value;
 	}
+	
+	/**
+	 * Changes the value of given attribute by the given amount.
+	 * <p>
+	 * 		To decrease the attribute value make difference < 0
+	 * </p>
+	 * @param difference
+	 */
+	public void changeAttributeValue(AttributeName name, int difference) {
+		for (int i = 0; i < attributes.size(); i++) {
+			if (attributes.get(i).getName() == name) {
+				attributes.get(i).setValue(difference);
+			}
+		}
+	}
 }
