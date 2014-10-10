@@ -44,7 +44,7 @@ public class Reward
       //go through all members of the party to check their levels
       for(int i=0; i < playerParty.characterCount(); i++)
       {
-        if(!playerParty.getCharacter(i).isDead)
+        if(!playerParty.getCharacter(i).isDead())
         {
           int tmplevel = playerParty.getCharacter(i).getAttributeValue(AttributeName.level);
           int tmpworth = enemyXpWorth();

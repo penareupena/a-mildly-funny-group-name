@@ -99,4 +99,16 @@ public class Character {
 			}
 		}
 	}
+	
+	/**
+	 * Indicates whether the character is dead
+	 * 
+	 * @return true if dead, false otherwise
+	 */
+	public boolean isDead() {
+		if (getAttributeValue(AttributeName.hp) == 0)
+			return true;
+		
+		return false;
+	}
 }

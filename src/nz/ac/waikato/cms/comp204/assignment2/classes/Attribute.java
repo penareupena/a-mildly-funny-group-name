@@ -52,14 +52,20 @@ public class Attribute {
 	}
 	
 	/**
-	 * Increases/Decreases the value of the attribute by the given amount
+	 * Increases/Decreases the value of the attribute by the given amount.
 	 * <p>
 	 * 		To decrease the attribute set increment to < 0.
+	 * </p>
+	 * <p>
+	 * 		If the decrement would reduce the value to below 0, the value will be 0
 	 * </p>
 	 *  
 	 * @param increment the amount to increment the attribute by.
 	 */
 	public void changeValue(int increment) {
 		value += increment;
+		
+		if (value < 0)
+			value = 0;
 	}
 }
