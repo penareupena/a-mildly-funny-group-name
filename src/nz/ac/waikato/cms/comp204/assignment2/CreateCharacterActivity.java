@@ -107,6 +107,11 @@ public class CreateCharacterActivity extends Activity implements OnClickListener
 			
 			TextView lblAttributesLeft = (TextView)findViewById(R.id.lblAttributesLeft);
 			lblAttributesLeft.setText(getString(R.string.attributes_left) + " " + String.valueOf(attributesLeft));
+			
+			if (attributesLeft < 0)
+				lblAttributesLeft.setTextColor(android.graphics.Color.RED);
+			else
+				lblAttributesLeft.setTextColor(android.graphics.Color.BLACK);
 		}
 	};
 	

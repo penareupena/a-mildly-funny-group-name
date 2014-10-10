@@ -21,7 +21,7 @@ public class Reward
     enemyParty = ep;
   }
   
-  public int enemyXpWorth(int worth)
+  public int enemyXpWorth()
   {
     int adding = 0;
     
@@ -31,9 +31,7 @@ public class Reward
       adding += (lvl*BASE);
     }
     
-    worth = adding;
-    
-    return worth;
+    return adding;
   }
   
   //This method will be used to calculate the XP earned by each of the players in the party.
