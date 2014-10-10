@@ -3,6 +3,7 @@ package nz.ac.waikato.cms.comp204.assignment2;
 import com.google.gson.Gson;
 
 import android.app.Activity;
+import android.content.Context;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
@@ -14,11 +15,13 @@ import android.view.View.OnClickListener;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 import nz.ac.waikato.cms.comp204.assignment2.classes.*;
 
 public class CreateCharacterActivity extends Activity implements OnClickListener {
 
 	private final int MAX_ATTRIBUTES = 15; 			// the maximum attribute points that can be used to create the character
+	private int attributesLeft = 0;
 	
 	// The integer value of the initial characters attributes
 	private int strength; 
@@ -103,7 +106,7 @@ public class CreateCharacterActivity extends Activity implements OnClickListener
 				power = Integer.parseInt(powerString);
 			
 			int attributesUsed = strength + dexterity + power;
-			int attributesLeft = MAX_ATTRIBUTES - attributesUsed;
+			attributesLeft = MAX_ATTRIBUTES - attributesUsed;
 			
 			TextView lblAttributesLeft = (TextView)findViewById(R.id.lblAttributesLeft);
 			lblAttributesLeft.setText(getString(R.string.attributes_left) + " " + String.valueOf(attributesLeft));
@@ -157,7 +160,26 @@ public class CreateCharacterActivity extends Activity implements OnClickListener
 	@Override
 	public void onClick(View v) {
 		if (v.getId() == btnCreate.getId()) {
-			
+			if (attributesLeft >= 0) {
+				// Shows the user a toast to tell them that the character is created.
+				// This is only a temporary measure until the overworld is completed.
+				Context context = getApplicationContext();
+				CharSequence text = "Character Created";
+				int duration = Toast.LENGTH_SHORT;
+				
+				Toast toast = Toast.makeText(context, text, duration);
+				toast.show();
+			}
+			else {
+				// Shows the user a toast to tell them that the character wasn't created
+				// This is a temporary measure until a better implementation is completed.
+				Context context = getApplicationContext();
+				CharSequence text = "Incorrect attribute values";
+				int duration = Toast.LENGTH_SHORT;
+				
+				Toast toast = Toast.makeText(context, text, duration);
+				toast.show();
+			}
 		}
 	}
 }
