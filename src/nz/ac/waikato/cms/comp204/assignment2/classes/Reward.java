@@ -24,11 +24,13 @@ public class Reward
   public int enemyXpWorth(int worth)
   {
     int adding = 0;
+    
     for(int n = 0; n < enemyParty.characterCount(); n++)
     {
       int lvl = enemyParty.getCharacter(n).getAttributeValue(AttributeName.level);
       adding += (lvl*BASE);
     }
+    
     worth = adding;
     
     return worth;
