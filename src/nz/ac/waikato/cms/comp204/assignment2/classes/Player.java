@@ -48,6 +48,24 @@ public class Player {
 	}
 	
 	/**
+	 * Adds a given character to the player's party.
+	 * 
+	 * @param character the character to add
+	 * 
+	 * @return true if the character is added, false if the given character is not associated with the player
+	 */
+	public boolean addCharacterToParty(Character character) {
+		for(int i = 0; i < characters.size(); i++) {
+			if (characters.get(i) == character) {
+				party.addToParty(character);
+				return true;
+			}
+		}
+		
+		return false;
+	}
+	
+	/**
 	 * Creates a new character for when the player is first created.
 	 * 
 	 * @param 	strength - 	the initial strength of the character
@@ -57,7 +75,7 @@ public class Player {
 	 * @return 	It will return a character object only if a character hasn't already been added
 	 * 			to the player, otherwise it will return null.
 	 */
-	private Character createCharacter(int strength, int dexterity, int power) {
+	public Character createCharacter(int strength, int dexterity, int power) {
 		if (characters.size() == 0)
 			return new Character(strength, dexterity, power);
 		
