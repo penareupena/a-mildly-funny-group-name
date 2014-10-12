@@ -21,4 +21,14 @@ public class Inventory {
 	public Inventory() {
 		items = new ArrayList<InventoryItem>();
 	}
+	
+	/**
+	 * Adds 
+	 *  
+	 * @param item the item to add to the inventory
+	 * 
+	 */
+	public void add(InventoryItem item) {
+		
+	}
 }
