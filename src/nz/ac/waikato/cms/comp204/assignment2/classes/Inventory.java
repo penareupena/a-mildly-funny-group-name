@@ -23,6 +23,18 @@ public class Inventory {
 	}
 	
 	/**
+	 * Creates a new Inventory object with a given list of items
+	 * 
+	 * @param items the items to instantiate the inventory with
+	 */
+	public Inventory(ArrayList<InventoryItem> items) {
+		if (items == null)
+			throw new IllegalArgumentException("items cannot be null");
+		
+		this.items = items;
+	}
+	
+	/**
 	 * Adds a given item to the inventory
 	 * <p>
 	 * 		If the item of the same type (ie. name) has already been added
