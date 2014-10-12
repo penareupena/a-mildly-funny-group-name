@@ -12,5 +12,5 @@ package nz.ac.waikato.cms.comp204.assignment2.classes;
  *
  */
 public class Accessory extends InventoryItem {
-
+	
 }

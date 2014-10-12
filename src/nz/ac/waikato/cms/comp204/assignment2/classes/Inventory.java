@@ -50,10 +50,21 @@ public class Inventory {
 	 * @return the number of weapons in the inventory
 	 */
 	public int weaponCount() {
+		return classCount(Weapon.class);
+	}
+	
+	/**
+	 * Gets the number of items of a given class in the inventory
+	 * 
+	 * @param c the class of item to count
+	 * 
+	 * @return the number of items in the inventory of the given class
+	 */
+	private int classCount(Class c) {
 		int count = 0;
 		
 		for (int i = 0; i < items.size(); i++) {
-			if (items.get(i).getClass() == Weapon.class)
+			if (items.get(i).getClass() == c)
 				count++;
 		}
 		
