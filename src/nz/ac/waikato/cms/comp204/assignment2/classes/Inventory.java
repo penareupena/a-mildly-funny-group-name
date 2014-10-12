@@ -43,4 +43,20 @@ public class Inventory {
 		
 		items.add(item);
 	}
+	
+	/**
+	 * Gets the number of weapon items in the inventory
+	 * 
+	 * @return the number of weapons in the inventory
+	 */
+	public int weaponCount() {
+		int count = 0;
+		
+		for (int i = 0; i < items.size(); i++) {
+			if (items.get(i).getClass() == Weapon.class)
+				count++;
+		}
+		
+		return count;
+	}
 }
