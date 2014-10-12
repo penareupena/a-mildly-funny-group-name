@@ -18,5 +18,12 @@ package nz.ac.waikato.cms.comp204.assignment2.classes;
  *
  */
 public class Weapon extends InventoryItem {
+
+	public Weapon(String name) {
+		super(name);
+	}
 	
+	public Weapon(String name, int quantity) {
+		super(name, quantity);
+	}
 }
