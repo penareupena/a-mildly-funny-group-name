@@ -12,5 +12,6 @@ package nz.ac.waikato.cms.comp204.assignment2.classes;
  *
  */
 public class Accessory extends InventoryItem {
-	
+	public Accessory(String name) { super (name); }
+	public Accessory(String name, int quantity) { super (name, quantity); }
 }
