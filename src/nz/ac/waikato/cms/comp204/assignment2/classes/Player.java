@@ -30,6 +30,8 @@ public class Player {
 	 * @param strength the number of strength points the initial character will have
 	 * @param dexterity the number of dexterity points the initial character will have
 	 * @param power the number of power points the initial character will have
+	 * 
+	 * @exception 
 	 */
 	public Player(int strength, int dexterity, int power) {
 		// Instantiate variables
@@ -37,8 +39,28 @@ public class Player {
 		party = new Party();
 		inventory = new Inventory();
 		
-		Character character = new Character(strength, dexterity, power);
+		Character newCharacter = createCharacter(strength, dexterity, power);
 		
-		characters.add(character);
+		if (newCharacter != null)
+			characters.add(createCharacter(strength, dexterity, power));
+		else
+			throw new NullPointerException("Character already created for this player");
+	}
+	
+	/**
+	 * Creates a new character for when the player is first created.
+	 * 
+	 * @param 	strength - 	the initial strength of the character
+	 * @param 	dexterity - the initial dexterity of the character
+	 * @param 	power -		the initial power of the character
+	 * 
+	 * @return 	It will return a character object only if a character hasn't already been added
+	 * 			to the player, otherwise it will return null.
+	 */
+	private Character createCharacter(int strength, int dexterity, int power) {
+		if (characters.size() == 0)
+			return new Character(strength, dexterity, power);
+		
+		return null;
 	}
 }
