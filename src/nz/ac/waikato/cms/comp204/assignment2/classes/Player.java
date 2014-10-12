@@ -81,4 +81,16 @@ public class Player {
 		
 		return null;
 	}
+
+	/**
+	 * Removes the given character from the party
+	 * 
+	 * @param character the character to be removed
+	 * 
+	 * @return true
+	 */
+	public boolean removeCharacterFromParty(Character character) {
+		party.removeFromParty(character);
+		return true;
+	}
 }
