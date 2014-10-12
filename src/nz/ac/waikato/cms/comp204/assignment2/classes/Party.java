@@ -53,4 +53,13 @@ public class Party {
 		
 		return characters.get(index);
 	}
+
+	/**
+	 * Adds the given character to the party
+	 * 
+	 * @param character the character to add
+	 */
+	public void addToParty(Character character) {
+		characters.add(character);
+	}
 }
