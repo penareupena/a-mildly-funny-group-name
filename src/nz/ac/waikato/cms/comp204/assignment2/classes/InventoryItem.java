@@ -39,4 +39,22 @@ public class InventoryItem {
 	public String ofType() {
 		 return name;
 	}
+	
+	/**
+	 * Changes the quantity by a given amount
+	 * <p>
+	 * 		To decrease the quantity, make difference < 0
+	 * </p>
+	 * <p>
+	 * 		The quantity of the item will never go below 0
+	 * </p>
+	 * 
+	 * @param difference the amount the change the quantity by
+	 */
+	public void changeQuantity(int difference) {
+		quantity += difference;
+		
+		if (quantity < 0)
+			quantity = 0;
+	}
 }
