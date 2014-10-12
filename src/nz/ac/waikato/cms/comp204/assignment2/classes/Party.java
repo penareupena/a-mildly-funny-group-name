@@ -62,4 +62,24 @@ public class Party {
 	public void addToParty(Character character) {
 		characters.add(character);
 	}
+
+	/**
+	 * Checks whether given character is in the player's party
+	 * <p>
+	 * 		This method checks on whether the given character has the same
+	 * 		reference as a character in the party. So two characters with
+	 * 		the same data in them won't be seen as equal.
+	 * </p>
+	 * @param character the character to check if it is in the party
+	 * 
+	 * @return true if the character is in the party, false otherwise
+	 */
+	public boolean isInParty(Character character) {
+		for (int i = 0; i < characters.size(); i++) {
+			if (characters.get(i) == character)
+				return true;
+		}
+		
+		return false;
+	}
 }
