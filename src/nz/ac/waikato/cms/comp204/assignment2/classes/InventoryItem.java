@@ -57,4 +57,13 @@ public class InventoryItem {
 		if (quantity < 0)
 			quantity = 0;
 	}
+	
+	/**
+	 * Gets the quantity of the item
+	 * 
+	 * @return the quantity of the item
+	 */
+	public int getQuantity() {
+		return quantity;
+	}
 }
