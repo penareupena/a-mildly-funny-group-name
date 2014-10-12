@@ -12,4 +12,11 @@ package nz.ac.waikato.cms.comp204.assignment2.classes;
  */
 public class Item extends InventoryItem {
 
+	public Item(String name) {
+		super(name);
+	}
+	
+	public Item(String name, int quantity) {
+		super (name, quantity);
+	}
 }
