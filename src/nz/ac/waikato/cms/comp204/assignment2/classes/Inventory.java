@@ -1,4 +1,7 @@
 package nz.ac.waikato.cms.comp204.assignment2.classes;
+
+import java.util.ArrayList;
+
 /**
  * This class represents the player's inventory.
  * <p>
@@ -10,5 +13,12 @@ package nz.ac.waikato.cms.comp204.assignment2.classes;
  *
  */
 public class Inventory {
-
+	ArrayList<InventoryItem> items;
+	
+	/**
+	 * Creates a new Inventory object
+	 */
+	public Inventory() {
+		items = new ArrayList<InventoryItem>();
+	}
 }
