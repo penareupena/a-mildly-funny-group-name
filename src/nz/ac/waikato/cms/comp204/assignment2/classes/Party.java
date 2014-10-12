@@ -82,4 +82,29 @@ public class Party {
 		
 		return false;
 	}
+
+	/**
+	 * Removes a given character from the party.
+	 * <p>
+	 * 		If the character given is not in the party then method is returned,
+	 * 		with no indication. This is because if you want to remove something
+	 * 		from the party that isn't in the party to begin with, it doesn't
+	 * 		matter.
+	 * </p>
+	 * <p>
+	 * 		This method uses references to determine equality, therefore the
+	 * 		character that is given must be the same object that needs to be
+	 * 		removed.
+	 * </p>
+	 * 
+	 * @param character the character to remove from the party
+	 */
+	public void removeFromParty(Character character) {
+		for (int i = 0; i < characters.size(); i++) {
+			if (characters.get(i) == character) {
+				characters.remove(i);
+				return;
+			}
+		}
+	}
 }
