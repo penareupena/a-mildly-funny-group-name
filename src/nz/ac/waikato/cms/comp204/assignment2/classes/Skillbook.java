@@ -12,4 +12,11 @@ package nz.ac.waikato.cms.comp204.assignment2.classes;
  */
 public class Skillbook extends InventoryItem {
 
+	public Skillbook(String name) {
+		super(name);
+	}
+	
+	public Skillbook(String name, int quantity) {
+		super(name, quantity);
+	}
 }
