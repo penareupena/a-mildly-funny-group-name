@@ -1,6 +1,8 @@
 package nz.ac.waikato.cms.comp204.assignment2;
 
+import nz.ac.waikato.cms.comp204.assignment2.classes.Player;
 import android.app.Activity;
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.text.Editable;
@@ -12,6 +14,7 @@ import android.view.View.OnClickListener;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
 public class CreateCharacterActivity extends Activity implements OnClickListener {
 
@@ -158,13 +161,53 @@ public class CreateCharacterActivity extends Activity implements OnClickListener
 	@Override
 	public void onClick(View v) {
 		if (v.getId() == btnCreate.getId()) {
-			Intent intent = new Intent(this, OverWorld.class);
-			startActivity(intent);
+			Player player = createPlayer();
+			
+			if (player != null) {
+				Intent intent = new Intent(this, OverWorld.class);
+				startActivity(intent);
+			}
 		}
 		
 		if (v.getId() == btnBattle.getId()) {
-			Intent intent = new Intent(this, BattleActivity.class);
-			startActivity(intent);
+			Player player = createPlayer();
+			
+			if (player != null) {
+				Intent intent = new Intent(this, BattleActivity.class);
+				startActivity(intent);
+			}
 		}
+	}
+	
+	/**
+	 * Creates a player object to play the game
+	 * 
+	 * @return the player to play the game
+	 */
+	private Player createPlayer() {
+		if (strength == 0 || dexterity == 0 || power == 0) {
+			showToast("Attribute values must be greater than 0");
+			return null;
+		}
+		
+		if (strength + dexterity + power > MAX_ATTRIBUTES) {
+			showToast("Attribute assignments exceed max amount");
+			return null;
+		}
+		
+		return new Player(strength, dexterity, power);
+	}
+	
+	/**
+	 * Shows a toast with the error on it
+	 * 
+	 * @param text the text to be shown
+	 */
+	private void showToast(CharSequence text) {
+		Context context = getApplicationContext();
+		int duration = Toast.LENGTH_SHORT;
+
+		Toast toast = Toast.makeText(context, text, duration);
+		toast.show();
 	}
 }
