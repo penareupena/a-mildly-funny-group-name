@@ -80,26 +80,19 @@ public class OverWorld extends Activity implements OnTouchListener {
 				display.getRealSize(size);
 				int width = size.x;
 				int height = size.y;
-				
-				Log.d("Test", "Width: " + String.valueOf(width));
-				Log.d("Test", "Height: " + String.valueOf(height));
-				
-				int leftX = 10;
-				int leftY = height - 10 - mveLeft.getHeight();
-				int rightX = width - 10 - mveRight.getWidth();
-				int rightY = height - 10 - mveRight.getHeight();
-				
-				Log.d("Test", "Left Y: " + String.valueOf(leftY));
-				Log.d("Test", "Right X: " + String.valueOf(rightX));
-				Log.d("Test", "Right Y: " + String.valueOf(rightY));
+								
+				int leftX = 30;
+				int leftY = height - height/2 - mveLeft.getHeight();
+				int rightX = width - 30 - mveRight.getWidth();
+				int rightY = height - height/2 - mveRight.getHeight();
 				
 				Canvas c = holder.lockCanvas();
 				c.drawARGB(255,0,0,10);
 				c.drawBitmap(playr.playerB,playr.xLoc-(playr.playerB.getWidth()/2),playr.yLoc-(playr.playerB.getHeight()/2),null);
 				
-				c.drawBitmap(mveLeft, 200, 500, null);
-				c.drawBitmap(mveRight, 300, 500, null);
-				c.drawBitmap(pause, 1800,10,null);
+				c.drawBitmap(mveLeft, leftX, leftY, null);
+				c.drawBitmap(mveRight, rightX, rightY, null);
+				c.drawBitmap(pause, width - 10 - pause.getWidth(),10,null);
 				holder.unlockCanvasAndPost(c);
 			}
 		}
@@ -131,11 +124,21 @@ public class OverWorld extends Activity implements OnTouchListener {
 	}
 	@Override
 	public boolean onTouch(View v, MotionEvent me) {
+		Display display = getWindowManager().getDefaultDisplay();
+		Point size = new Point();
+		display.getRealSize(size);
+		int width = size.x;
+		int height = size.y;
+						
+		int leftX = 30;
+		int leftY = height - height/2 - mveLeft.getHeight();
+		int rightX = width - 30 - mveRight.getWidth();
+		int rightY = height - height/2 - mveRight.getHeight();
 		switch(me.getAction())
 		{
 			case MotionEvent.ACTION_MOVE:
 			{
-				if(me.getX() > 200 && me.getX() <= 272 && me.getY() > 500 && me.getY() < 572)
+				if(me.getX() > leftX && me.getX() <= leftX+mveLeft.getHeight() && me.getY() > leftY && me.getY() < leftY+mveLeft.getWidth())
 				{
 					if(ow.isOK == true)
 					{
@@ -143,7 +146,7 @@ public class OverWorld extends Activity implements OnTouchListener {
 						return true;
 					}
 				}
-				else if(me.getX() > 300 && me.getX() <= 372 && me.getY() > 500 && me.getY() < 572)
+				else if(me.getX() > rightX && me.getX() <= rightX + mveRight.getHeight() && me.getY() > rightY && me.getY() < rightY + mveRight.getWidth())
 				{
 					if(ow.isOK == true)
 					{
@@ -154,7 +157,7 @@ public class OverWorld extends Activity implements OnTouchListener {
 			}break;
 			case MotionEvent.ACTION_DOWN:
 			{
-				if(me.getX() > 1800 && me.getX() <= 1905 && me.getY() > 10 && me.getY()< 61)
+				if(me.getX() > width - 10 - pause.getWidth() && me.getX() <= width - 10 && me.getY() > 10 && me.getY()< 10+pause.getWidth())
 				{
 					if(ow.isOK == false)
 					{
