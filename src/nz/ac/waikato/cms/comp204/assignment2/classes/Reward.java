@@ -35,7 +35,7 @@ public class Reward
   }
   
   //This method will be used to calculate the XP earned by each of the players in the party.
-  private void xpCalculator(Player p)
+  private void xpCalculator()
   {
     if((playerParty != null) && (enemyParty != null))
     {
