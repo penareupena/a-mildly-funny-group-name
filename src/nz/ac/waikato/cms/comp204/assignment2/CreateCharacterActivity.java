@@ -4,6 +4,7 @@ import com.google.gson.Gson;
 
 import android.app.Activity;
 import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
@@ -161,14 +162,8 @@ public class CreateCharacterActivity extends Activity implements OnClickListener
 	public void onClick(View v) {
 		if (v.getId() == btnCreate.getId()) {
 			if (attributesLeft >= 0) {
-				// Shows the user a toast to tell them that the character is created.
-				// This is only a temporary measure until the overworld is completed.
-				Context context = getApplicationContext();
-				CharSequence text = "Character Created";
-				int duration = Toast.LENGTH_SHORT;
-				
-				Toast toast = Toast.makeText(context, text, duration);
-				toast.show();
+				Intent intent = new Intent(this, OverWorld.class);
+				startActivity(intent);
 			}
 			else {
 				// Shows the user a toast to tell them that the character wasn't created

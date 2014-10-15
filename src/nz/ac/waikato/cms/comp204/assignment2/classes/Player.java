@@ -1,6 +1,8 @@
 package nz.ac.waikato.cms.comp204.assignment2.classes;
 import java.util.ArrayList;
 
+import android.graphics.Bitmap;
+
 /**
  * This class represents the player in the game.
  * <p>
@@ -14,6 +16,9 @@ import java.util.ArrayList;
  */
 
 public class Player {
+	public Bitmap playerB = null;
+	public int xLoc = 10;
+	public int yLoc = 150;
 	
 	private ArrayList<Character> characters;	// the characters that are associated with the player
 	private Party party;						// the party of characters to be used in battle
@@ -92,5 +97,27 @@ public class Player {
 	public boolean removeCharacterFromParty(Character character) {
 		party.removeFromParty(character);
 		return true;
+	}
+	
+	public void Move(int x)
+	{
+		if(xLoc == 0)
+		{
+			if(x>0)
+			{
+				xLoc += x;
+			}
+		}
+		else if(xLoc == 1000)
+		{
+			if(x<0)
+			{
+				xLoc += x;
+			}
+		}
+		else
+		{
+			xLoc += x;
+		}
 	}
 }

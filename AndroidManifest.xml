@@ -5,8 +5,8 @@
     android:versionName="1.0" >
 
     <uses-sdk
-        android:minSdkVersion="14"
-        android:targetSdkVersion="14" />
+        android:minSdkVersion="17"
+        android:targetSdkVersion="17" />
 
     <application
         android:allowBackup="true"
@@ -25,7 +25,13 @@
         </activity>
         <activity
             android:name=".CreateCharacterActivity"
-            android:label="@string/title_activity_create_character" >
+            android:label="@string/title_activity_create_character"
+            android:screenOrientation="landscape" >
+        </activity>
+        <activity
+            android:name=".OverWorld"
+            android:label="@string/title_activity_overworld"
+            android:screenOrientation="landscape" >
         </activity>
     </application>
 

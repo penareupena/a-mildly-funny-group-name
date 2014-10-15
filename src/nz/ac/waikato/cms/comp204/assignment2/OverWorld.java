@@ -8,13 +8,17 @@ import android.content.pm.ActivityInfo;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.Canvas;
+import android.graphics.Point;
 import android.os.Bundle;
+import android.util.Log;
+import android.view.Display;
 import android.view.MotionEvent;
 import android.view.SurfaceHolder;
 import android.view.SurfaceView;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.View.OnTouchListener;
+import android.widget.Button;
 
 public class OverWorld extends Activity implements OnTouchListener {
 	drawOverWorld ow;
@@ -22,7 +26,8 @@ public class OverWorld extends Activity implements OnTouchListener {
 	Bitmap mveRight;
 	Bitmap pause;
 	Player playr;
-
+	Button btnLeft;
+	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -35,6 +40,7 @@ public class OverWorld extends Activity implements OnTouchListener {
 		playr = new Player(1, 1, 1);
 		playr.playerB = BitmapFactory.decodeResource(getResources(), R.drawable.ic_launcher);
 		setContentView(ow);
+	
 		
 		ow.setOnTouchListener(this);
 		
@@ -69,11 +75,30 @@ public class OverWorld extends Activity implements OnTouchListener {
 				{
 					continue;
 				}
+				Display display = getWindowManager().getDefaultDisplay();
+				Point size = new Point();
+				display.getRealSize(size);
+				int width = size.x;
+				int height = size.y;
+				
+				Log.d("Test", "Width: " + String.valueOf(width));
+				Log.d("Test", "Height: " + String.valueOf(height));
+				
+				int leftX = 10;
+				int leftY = height - 10 - mveLeft.getHeight();
+				int rightX = width - 10 - mveRight.getWidth();
+				int rightY = height - 10 - mveRight.getHeight();
+				
+				Log.d("Test", "Left Y: " + String.valueOf(leftY));
+				Log.d("Test", "Right X: " + String.valueOf(rightX));
+				Log.d("Test", "Right Y: " + String.valueOf(rightY));
+				
 				Canvas c = holder.lockCanvas();
 				c.drawARGB(255,0,0,10);
 				c.drawBitmap(playr.playerB,playr.xLoc-(playr.playerB.getWidth()/2),playr.yLoc-(playr.playerB.getHeight()/2),null);
-				c.drawBitmap(mveLeft, 200,500, null);
-				c.drawBitmap(mveRight, 300,500, null);
+				
+				c.drawBitmap(mveLeft, 200, 500, null);
+				c.drawBitmap(mveRight, 300, 500, null);
 				c.drawBitmap(pause, 1800,10,null);
 				holder.unlockCanvasAndPost(c);
 			}
