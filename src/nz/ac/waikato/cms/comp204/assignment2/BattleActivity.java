@@ -90,6 +90,8 @@ public class BattleActivity extends Activity implements OnClickListener {
         group2.add(new Character(5,5,5));
         _pp = new Party(group2);
         _p = new Player(_pp);
+        startBattle(_p, _ep);
+        
         /*
         runBattle(_p, _ep);
 
@@ -116,9 +118,8 @@ public class BattleActivity extends Activity implements OnClickListener {
         return super.onOptionsItemSelected(item);
     }
 
-    public void runBattle(Player _p, Party _ep) {
-
-        p = _p;
+    private void startBattle(Player _p, Party _ep) {
+    	p = _p;
         ep = _ep;
         pp = p.getParty();
 
@@ -127,7 +128,9 @@ public class BattleActivity extends Activity implements OnClickListener {
 
         if (pp.totalDex() > ep.totalDex())
             turn = true;
-
+    }
+    
+    public void runBattle(Player _p, Party _ep) {
         //create interface
         //create each party's sprites and pressable things
 
