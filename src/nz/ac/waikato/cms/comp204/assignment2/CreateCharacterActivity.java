@@ -1,12 +1,9 @@
 package nz.ac.waikato.cms.comp204.assignment2;
 
-import com.google.gson.Gson;
-
 import android.app.Activity;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
-import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -14,7 +11,6 @@ import android.view.View.OnClickListener;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
-import nz.ac.waikato.cms.comp204.assignment2.classes.*;
 
 public class CreateCharacterActivity extends Activity implements OnClickListener {
 

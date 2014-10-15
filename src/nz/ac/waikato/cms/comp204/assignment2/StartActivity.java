@@ -45,7 +45,7 @@ public class StartActivity extends Activity implements OnClickListener {
 	@Override
 	public void onClick(View view) {
 		if (view.getId() == btnStart.getId()) {
-			Intent intent = new Intent(this, CreateCharacterActivity.class);
+			Intent intent = new Intent(this, OverWorld.class);
 			startActivity(intent);
 		}
 	}
