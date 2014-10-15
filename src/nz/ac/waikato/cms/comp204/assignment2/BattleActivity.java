@@ -90,15 +90,13 @@ public class BattleActivity extends Activity implements OnClickListener {
         group2.add(new Character(5,5,5));
         _pp = new Party(group2);
         _p = new Player(_pp);
+        /*
         runBattle(_p, _ep);
 
         BattleStarted = true;
+        */
     }
-
-    protected void onPause(){
-
-    }
-
+    
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
