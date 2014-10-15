@@ -94,10 +94,16 @@
         android:id="@+id/btnCreate"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignBaseline="@+id/txtDexterity"
-        android:layout_alignBottom="@+id/txtDexterity"
+        android:layout_alignBottom="@+id/lblDexterity"
         android:layout_alignLeft="@+id/lblAttributesLeft"
-        android:layout_marginLeft="74dp"
-        android:text="@string/create" />
+        android:text="@string/goToOverworld" />
+
+    <Button
+        android:id="@+id/btnGoToBattle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/btnCreate"
+        android:layout_alignTop="@+id/lblPower"
+        android:text="@string/goToBattle" />
     
 </RelativeLayout>

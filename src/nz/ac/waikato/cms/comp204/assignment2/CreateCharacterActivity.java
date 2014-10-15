@@ -27,6 +27,7 @@ public class CreateCharacterActivity extends Activity implements OnClickListener
 	private EditText txtPower;
 	
 	private Button btnCreate;
+	private Button btnBattle;
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -40,6 +41,7 @@ public class CreateCharacterActivity extends Activity implements OnClickListener
 		
 		// Get Button
 		btnCreate = (Button)findViewById(R.id.btnCreate);
+		btnBattle = (Button)findViewById(R.id.btnGoToBattle);
 		
 		// Register text changed listeners
 		txtStrength.addTextChangedListener(onAttributeTextChanged);
@@ -48,6 +50,7 @@ public class CreateCharacterActivity extends Activity implements OnClickListener
 		
 		// Register onClick event listener
 		btnCreate.setOnClickListener(this);
+		btnBattle.setOnClickListener(this);
 		
 		populateInitialValues();		// populates the text fields with their appropriate values
 	}
@@ -92,12 +95,18 @@ public class CreateCharacterActivity extends Activity implements OnClickListener
 			
 			if (strengthString != null && !strengthString.equals(""))
 				strength = Integer.parseInt(strengthString);
+			else
+				strength = 0;
 			
 			if (dexterityString != null && !dexterityString.equals(""))
 				dexterity = Integer.parseInt(dexterityString);
+			else
+				dexterity = 0;
 			
 			if (powerString != null && !powerString.equals(""))
 				power = Integer.parseInt(powerString);
+			else
+				power = 0;
 			
 			int attributesUsed = strength + dexterity + power;
 			int attributesLeft = MAX_ATTRIBUTES - attributesUsed;
@@ -150,6 +159,11 @@ public class CreateCharacterActivity extends Activity implements OnClickListener
 	public void onClick(View v) {
 		if (v.getId() == btnCreate.getId()) {
 			Intent intent = new Intent(this, OverWorld.class);
+			startActivity(intent);
+		}
+		
+		if (v.getId() == btnBattle.getId()) {
+			Intent intent = new Intent(this, BattleActivity.class);
 			startActivity(intent);
 		}
 	}

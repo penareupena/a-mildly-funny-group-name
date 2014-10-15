@@ -14,6 +14,8 @@
 	<string name="power">Power</string>
 	<string name="attributes_left">Attributes Left:</string>
 	<string name="create">Create</string>
+	<string name="goToOverworld">Go To Overworld</string>
+	<string name="goToBattle">Go To Battle</string>
 	<string name="btnLeft">L</string>
 	<string name="title_activity_battle">BattleActivity</string>
 	<string name="dummy_button">Dummy Button</string>
