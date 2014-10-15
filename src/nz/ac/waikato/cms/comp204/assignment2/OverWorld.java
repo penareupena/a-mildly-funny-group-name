@@ -19,7 +19,14 @@ import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.View.OnTouchListener;
 import android.widget.Button;
-
+/**
+ * 
+ * @author Harry
+ * The OverWorld created a instance of a drawOverWorld class which initiates a thread and draws all the 
+ * Overworld and draws a player onto the screen for the user to control. It also draws the buttons required to move the
+ * player and pause the game.
+ *
+ */
 public class OverWorld extends Activity implements OnTouchListener {
 	drawOverWorld ow;
 	Bitmap mveLeft;
@@ -27,7 +34,9 @@ public class OverWorld extends Activity implements OnTouchListener {
 	Bitmap pause;
 	Player playr;
 	Button btnLeft;
-	
+	/**
+	 * Initializes all the bitmaps which are to be drawn onto the screen and draws the overworld
+	 */
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -45,18 +54,31 @@ public class OverWorld extends Activity implements OnTouchListener {
 		ow.setOnTouchListener(this);
 		
 	}
+	/**
+	 * Calls the pause method in the drawOverWorld class and pauses the game.
+	 */
 	@Override
 	protected void onPause()
 	{
 		super.onPause();
 		ow.pause();
 	}
+	/**
+	 * Calls the resume method in the drawOverWorld class and resumes the game.
+	 */
 	@Override
 	protected void onResume()
 	{
 		super.onResume();
 		ow.resume();
 	}
+	/**
+	 * 
+	 * @author Harry
+	 * drawOverWorld class which initializes the screen to be drawn onto
+	 * and creates a thread which will draw all the bitmaps onto the canvas.
+	 *
+	 */
 	public class drawOverWorld extends SurfaceView implements Runnable{
 
 		Thread world = null;
@@ -67,6 +89,9 @@ public class OverWorld extends Activity implements OnTouchListener {
 			super(context);
 			holder = getHolder();
 		}
+		/**
+		 * Starts a thread which draws the player and the move buttons and also the pause button to the screen.
+		 */
 		@Override
 		public void run() {
 			while(isOK == true)
@@ -96,6 +121,9 @@ public class OverWorld extends Activity implements OnTouchListener {
 				holder.unlockCanvasAndPost(c);
 			}
 		}
+		/**
+		 * Upon call this method pauses the thread by killing the thread.
+		 */
 		public void pause()
 		{
 			isOK = false;
@@ -113,6 +141,9 @@ public class OverWorld extends Activity implements OnTouchListener {
 			}
 			world = null;
 		}
+		/**
+		 * Creates a new thread to break from the pause.
+		 */
 		public void resume()
 		{
 			isOK = true;
@@ -122,6 +153,11 @@ public class OverWorld extends Activity implements OnTouchListener {
 		
 		
 	}
+	/**
+	 * This method is prevoked when the screen is touched and 
+	 * if the touch is on a certain spot in this case one of the buttons
+	 * an action occurs either the player is moved or the game is paused.
+	 */
 	@Override
 	public boolean onTouch(View v, MotionEvent me) {
 		Display display = getWindowManager().getDefaultDisplay();
