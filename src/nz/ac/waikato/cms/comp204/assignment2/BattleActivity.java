@@ -123,7 +123,6 @@ public class BattleActivity extends Activity implements OnClickListener {
         ep = _ep;
         pp = p.getParty();
 
-
         setTextFields();
 
         if (pp.totalDex() > ep.totalDex())
@@ -171,11 +170,11 @@ public class BattleActivity extends Activity implements OnClickListener {
         if(pp.characterCount()>2)
             PartyHp3.setText(pp.getCharacter(2).getAttributeValue(AttributeName.hp) + "/" + pp.getCharacter(2).maxHp());
 
-        EnemyHp1.setText(pp.getCharacter(0).getAttributeValue(AttributeName.hp) + "/" + ep.getCharacter(0).maxHp());
+        EnemyHp1.setText(ep.getCharacter(0).getAttributeValue(AttributeName.hp) + "/" + ep.getCharacter(0).maxHp());
         if(ep.characterCount()>1)
-            EnemyHp2.setText(pp.getCharacter(1).getAttributeValue(AttributeName.hp) + "/" + ep.getCharacter(1).maxHp());
+            EnemyHp2.setText(ep.getCharacter(1).getAttributeValue(AttributeName.hp) + "/" + ep.getCharacter(1).maxHp());
         if(ep.characterCount()>2)
-            EnemyHp3.setText(pp.getCharacter(2).getAttributeValue(AttributeName.hp) + "/" + ep.getCharacter(2).maxHp());
+            EnemyHp3.setText(ep.getCharacter(2).getAttributeValue(AttributeName.hp) + "/" + ep.getCharacter(2).maxHp());
 
 
     }
