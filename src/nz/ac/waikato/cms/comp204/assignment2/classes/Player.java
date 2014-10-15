@@ -53,6 +53,23 @@ public class Player {
 	}
 	
 	/**
+	 * Creates a new player with a given party
+	 * 
+	 * @param party the party of characters associated with the player
+	 */
+	public Player(Party party) {
+		// Set the list of characters
+		characters = new ArrayList<Character>();
+		
+		for (int i = 0; i < party.characterCount(); i++) {
+			characters.add(party.getCharacter(i));
+		}
+		
+		this.party = party;
+		inventory = new Inventory();
+	}
+	
+	/**
 	 * Adds a given character to the player's party.
 	 * 
 	 * @param character the character to add
@@ -99,6 +116,11 @@ public class Player {
 		return true;
 	}
 	
+	/**
+	 * Moves the player's sprite along the screen
+	 * 
+	 * @param x the amount to move left (+ve) or right (-ve)
+	 */
 	public void Move(int x)
 	{
 		if(xLoc == 0)
@@ -119,5 +141,14 @@ public class Player {
 		{
 			xLoc += x;
 		}
+	}
+	
+	/**
+	 * Gets the player's party
+	 * 
+	 * @return the player's party
+	 */
+	public Party getParty() {
+		return party;
 	}
 }

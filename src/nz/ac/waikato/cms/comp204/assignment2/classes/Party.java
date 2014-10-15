@@ -107,4 +107,44 @@ public class Party {
 			}
 		}
 	}
+	
+	/**
+	 * Determines whether all members of a party are dead
+	 * 
+	 * @return true if all dead, false otherwise
+	 */
+	public boolean allDead(){
+	    for(int i = 0; i < characters.size(); i++){
+	        if(!characters.get(i).isDead()){
+			    return false;
+			}
+	    }
+	    
+	    return true;
+    }
+	
+	public boolean allTakenAction(){
+        for(int i = 0; i < characters.size(); i++){
+            if(!characters.get(i).takenAction()){
+                return false;
+            }
+        }
+        
+        return true;
+    }
+	
+	public int totalDex(){
+	    int dex = 0;
+	    for(int i = 0; i < characters.size(); i++){
+	        dex += characters.get(i).getDex();
+	    }
+	    
+	    return dex;
+    }
+	
+	public void resetActions(){
+	    for(int i = 0; characters.size()<i; i++){
+	        characters.get(i).resetAction();
+	    }
+    }
 }

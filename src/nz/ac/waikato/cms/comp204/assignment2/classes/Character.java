@@ -1,5 +1,6 @@
 package nz.ac.waikato.cms.comp204.assignment2.classes;
 import java.util.ArrayList;
+import java.util.Random;
 
 
 /**
@@ -16,7 +17,22 @@ public class Character {
 	private ArrayList<Armour> armour;
 	private BattleSkills battleSkills;
 	
+	// Bases for the character attributes
+	private final int BASE_LVL   = 1;
+	private final int BASE_DMG   = 10;
+	private final int BASE_HP    = 100;
+	private final int BASE_DEX   = 5;
+	private final int BASE_CRIT  = 5;
+	private final int BASE_ARMOR = 2;
+	
 	private int maxWeapons;
+	
+	// Indicates whether the character has taken 
+	// an action in battle
+	private boolean takenAction = false;
+	
+	// Random number generator for critical chance roll
+	Random rand = new Random();
 	
 	/**
 	 * Creates a new instance of character.
@@ -47,14 +63,20 @@ public class Character {
 		Attribute dexterityAttribute = new Attribute(AttributeName.dexterity, dexterity);
 		Attribute powerAttribute = new Attribute(AttributeName.power, power);
 		
-		// Creates a level stat for the character and sets it at it's default value of 1
-		Attribute level = new Attribute(AttributeName.level, 1);
+		// Creates the stats for the character and sets them to their base values
+		Attribute level = new Attribute(AttributeName.level, BASE_LVL);
+		Attribute hp = new Attribute(AttributeName.hp, BASE_HP);
+		Attribute critical = new Attribute(AttributeName.critical, BASE_CRIT);
+		Attribute armour = new Attribute(AttributeName.armour, BASE_ARMOR);
 		
 		// Adds the attributes to the character
 		attributes.add(strengthAttribute);
 		attributes.add(dexterityAttribute);
 		attributes.add(powerAttribute);
 		attributes.add(level);
+		attributes.add(hp);
+		attributes.add(critical);
+		attributes.add(armour);
 		
 		// TODO: Add simple weapon to character
 	}
@@ -111,4 +133,79 @@ public class Character {
 		
 		return false;
 	}
+	
+	/**
+	 * used to enact damage against the given Character
+	 * 
+	 * @param victim the victim of the attack
+	 */
+	public void WeaponAttack(Character victim){
+	    int totalDmg = 0;
+	    
+		//calculate base damage based off of weapon and stats
+		totalDmg += BASE_DMG;
+		
+		if(critChanceRoll()){
+		    totalDmg*=2;
+		}
+		//level difference multiplier
+		victim.Damaged(totalDmg);
+
+	}
+	
+	/**
+	 * used to enact damage against this Character
+	 * 
+	 * @param dmg the amount of damage to inflict
+	 */
+	public void Damaged(int dmg){
+	    dmg-=this.getAttributeValue(AttributeName.armour);
+		
+		if(dmg<0)
+		    dmg=0;
+			
+		this.changeAttributeValue(AttributeName.hp, dmg);
+	}
+	
+	private boolean critChanceRoll(){
+	    if(rand.nextInt(100)<BASE_CRIT){
+		    return true;
+		}
+	    
+		return false;
+	}
+	
+	public int getDex(){
+        return this.getAttributeValue(AttributeName.dexterity);
+    }
+
+    public int maxHp(){
+        return BASE_HP;
+    }
+    
+    /**
+     * Gets whether the character has taken an action
+     * in battle
+     * 
+     * @return true if taken an action, false otherwise
+     */
+    public boolean takenAction() {
+    	return takenAction;
+    }
+    
+    /**
+     * Sets the character to indicate that an action
+     * has been taken
+     */
+    public void takeAction() {
+    	takenAction = true;
+    }
+    
+    /**
+     * Sets the character to indicate that an action
+     * has not been taken
+     */
+    public void resetAction() {
+    	takenAction = false;
+    }
 }
