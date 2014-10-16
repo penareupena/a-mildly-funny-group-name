@@ -164,7 +164,7 @@ public class Character {
 		if(dmg<0)
 		    dmg=0;
 			
-		this.changeAttributeValue(AttributeName.hp, dmg);
+		this.changeAttributeValue(AttributeName.hp, -dmg);
 	}
 	
 	private boolean critChanceRoll(){

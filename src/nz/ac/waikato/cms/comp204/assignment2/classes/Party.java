@@ -143,7 +143,7 @@ public class Party {
     }
 	
 	public void resetActions(){
-	    for(int i = 0; characters.size()<i; i++){
+	    for(int i = 0; i<characters.size(); i++){
 	        characters.get(i).resetAction();
 	    }
     }
